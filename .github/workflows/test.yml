@@ -12,7 +12,7 @@ jobs:
       - uses: sdkman/sdkman-action@8ce656774bf25bbd9e33bc11638105bf2be75f32
         with:
           candidate: springboot
-#          version: 
+          version: 2.7.0
       
       - name: Initialize Spring project
         run: spring init --dependencies=web
