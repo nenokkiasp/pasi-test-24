@@ -9,14 +9,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - uses: sdkman/sdkman-action@8ce656774bf25bbd9e33bc11638105bf2be75f32
-        with:
-          candidate: springboot
-          version: 2.7.0
+#      - name: Setup Java JDK
+#        uses: actions/setup-java@v3.3.0
+#        with:
+#          java-version: 17
+#          distribution: zulu
+#          cache: maven
+
+      - name: Install Spring CLI
+        run: |
+          brew tap spring-io/tap
+          brew install spring-boot
       
       - name: Initialize Spring project
-#        run: spring init --dependencies=web
-        run: ls ~/.sdkman/candidates
+        run: spring init --dependencies=web
 
 #      - name: Remove initialization workflow
 #        run: rm .github/workflows/init_repository.yml
