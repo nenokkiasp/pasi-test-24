@@ -20,6 +20,7 @@ jobs:
         run: |
           brew tap spring-io/tap
           brew install spring-boot
+          unzip demo.zip
       
       - name: Initialize Spring project
         run: spring init --dependencies=web
