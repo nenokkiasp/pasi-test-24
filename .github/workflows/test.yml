@@ -20,10 +20,12 @@ jobs:
         run: |
           brew tap spring-io/tap
           brew install spring-boot
-          unzip demo.zip
       
       - name: Initialize Spring project
         run: spring init --dependencies=web
+          
+      - name: Unzip Spring project
+        run: unzip demo.zip
 
 #      - name: Remove initialization workflow
 #        run: rm .github/workflows/init_repository.yml
