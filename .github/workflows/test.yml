@@ -1,0 +1,28 @@
+name: Run Spring Initializr
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate-template:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: sdkman/sdkman-action@8ce656774bf25bbd9e33bc11638105bf2be75f32
+        with:
+          candidate: springboot
+#          version: 
+      
+      - name: Initialize Spring project
+        run: spring init --dependencies=web
+
+#      - name: Remove initialization workflow
+#        run: rm .github/workflows/init_repository.yml
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Initialize Spring project
+          title: Initialize Spring project
+          delete-branch: true
