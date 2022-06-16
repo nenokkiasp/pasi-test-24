@@ -16,7 +16,7 @@ jobs:
       
       - name: Initialize Spring project
 #        run: spring init --dependencies=web
-        run: ls ${{ steps.sdkman.outputs.file}}
+        run: ls ~/.sdkman/candidates
 
 #      - name: Remove initialization workflow
 #        run: rm .github/workflows/init_repository.yml
